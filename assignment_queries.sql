@@ -45,17 +45,13 @@ Q8 (BONUS): Find customers who rented more than 30 films.
 Output: full_name, rental_count
 
 
-
--- SOLUTIONS
-
-
 -----------------------------------------------------
 Q1: List all customers along with their total payment amount.
 Output: customer_id, full_name, total_amount
 -----------------------------------------------------
 
 -- ans 
-SELECT c.customer_id, c.first_name || ' ' ||  c.last_name as full_name,=
+SELECT c.customer_id, c.first_name || ' ' ||  c.last_name as full_name,
        sum(p.amount) as total_amount
 from customer c
 inner join payment p on c.customer_id = p.customer_id
@@ -121,12 +117,12 @@ WHERE p.customer_id IS NULL;
 -- Tables: store, staff, payment
 -----------------------------------------------------
 -- ans
-select st.store_id, 
-      sum(p.amount) as total_revenue
+select st.store_id,
+       sum(p.amount) as total_revenue
 from store st
-inner join staff sf on st.store_id = sf.staff_id
+inner join staff sf  on st.store_id = sf.store_id
 inner join payment p on sf.staff_id = p.staff_id
-group by  st.store_id
+group by st.store_id
 order by total_revenue desc;
 
 
@@ -134,31 +130,19 @@ order by total_revenue desc;
 -- Q7: Identify the top 5 most rented movies.
 -- Output: film_title, rental_count
 -----------------------------------------------------
--- ans
-
 select f.title as film_title, 
        count(rn.rental_id) as rental_count
 from film f
-inner join inventory inv on f.film_id = inv.film_id
+inner join inventory inv on f.film_id = inv.film_
 inner join rental rn on  inv.inventory_id = rn.inventory_id
 group by f.title
 order by rental_count desc
 fetch first 5 rows only;
 
 
- -----------------------------------------------------
--- Q8 (BONUS): Find customers who rented more than 30 films.
--- Output: full_name, rental_count
------------------------------------------------------
--- ans
-SELECT 
-    c.first_name || ' ' || c.last_name AS full_name,
-    COUNT(r.rental_id) AS rental_count
-FROM customer c
-INNER JOIN rental r ON c.customer_id = r.customer_id
-GROUP BY c.customer_id, c.first_name, c.last_name
-HAVING COUNT(r.rental_id) > 30
-ORDER BY rental_count DESC;
+ 
+
+
 
 
 
