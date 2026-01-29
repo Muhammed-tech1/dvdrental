@@ -1,4 +1,5 @@
-Day 2  project: PostgreSQL
+
+Day 2  project: PostgreSQ
 
 -- project   
 
@@ -6,8 +7,17 @@ Day 2  project: PostgreSQL
 -- 1. Retrieve all columns from the customer table.
 -- solution_1
 
-select first_name, 
-       last_name 
+select customer_id,
+       store_id,
+       first_name, 
+       last_name,
+	   email,
+	   address_id,
+	   activebool,
+	   create_date,
+	   last_update,
+	   active
+	   
 from customer;
 
 
@@ -95,9 +105,14 @@ where description like '%Action%'; -- 44 rows retuned
 -- 11. Retrieve payments greater than 7, sorted by amount in descending order.
 -- solution_11
 
-select amount from payment 
+select payment_id,
+       customer_id,
+       staff_id,
+       amount,
+       payment_date
+from payment
 where amount > 7
-order by amount desc; -- 1406 rows retuned
+order by amount desc;-- 1000 rows retuned
 
 -- Question 12
 -- 12. Retrieve customers whose first name ends with “n”, sorted alphabetically.
