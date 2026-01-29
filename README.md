@@ -1,106 +1,150 @@
-DVD Rental SQL project
-Project Overview
+PostgreSQL SQL Projects (dvdrental)
+📌 Overview
 
-This project contains SQL queries written in PostgreSQL to solve a series of database problems to answer business questions
-using the DVD Rental (dvdrental) sample database. The purpose is to strengthen core SQL skills such as joins, aggregation, filtering, 
-and understanding relational database design.
+This repository contains a collection of PostgreSQL SQL practice projects completed using the popular dvdrental sample database. The work demonstrates progressive learning from basic SQL queries to multi-table JOIN operations and aggregations.
 
-The assignment covers the following problems:
+The projects are organized to reflect daily learning milestones, showing clear improvement in query logic, relational thinking, and data analysis skills.
 
-Assignment Questions
-Q1: List all customers along with their total payment amount
+🧑‍💻 Author
 
-Output: customer_id, full_name, total_amount
+Muhammed Abdullahi
+Computer Science Student | Aspiring Data Scientist
 
-Skills: SUM(), GROUP BY
+🛠 Tools & Technologies
 
-Q2: Retrieve the top 10 customers by total amount spent
+PostgreSQL
 
-Output: full_name, email, total_amount
+SQL (ANSI-standard syntax)
 
-Skills: SUM(), GROUP BY, ORDER BY, LIMIT/FETCH
+dvdrental sample database
 
-Q3: Display all films and their corresponding categories
+pgAdmin / PostgreSQL CLI
 
-Tables: film, film_category, category
+📂 Database Tables Used
 
-Skills: INNER JOIN, many-to-many relationships
+customer
 
-Q4: Find the number of rentals made by each customer
+payment
 
-Output: customer_id, full_name, total_rentals
+film
 
-Skills: COUNT(), GROUP BY, joins
+actor
 
-Q5: List customers who have never made a payment
+rental
 
-Hint: LEFT JOIN
+inventory
 
-Skills: Anti-join logic, filtering with IS NULL
+staff
 
-Q6: Show total revenue generated per store
+store
 
-Tables: store, staff, payment
+category
 
-Skills: Joins across multiple tables, aggregation
+film_category
 
-Q7: Identify the top 5 most rented movies
+📅 Project Breakdown
+🔹 Project 1: PostgreSQL Fundamentals (20 Questions)
 
-Output: film_title, rental_count
+This section focuses on core SQL concepts and single-table operations.
 
-Skills: Bridge tables, aggregation, sorting, limiting
+Concepts Covered:
 
-Q8 (BONUS): Find customers who rented more than 30 films
+SELECT and SELECT *
 
-Output: full_name, rental_count
+WHERE filtering
 
-Skills: HAVING with aggregates, filtering high-activity customers
+ORDER BY (ASC / DESC)
 
-Key SQL Concepts Demonstrated
+LIMIT and FETCH
 
-INNER JOIN and LEFT JOIN
+Pattern matching using LIKE / ILIKE
 
-Aggregation functions: COUNT(), SUM()
+Aggregate functions (SUM, AVG, COUNT, MAX)
 
-GROUP BY and HAVING
+GROUP BY
 
-Sorting with ORDER BY
+Sample Tasks:
 
-Using bridge tables to handle many-to-many relationships
+Retrieve and sort customer records
 
-Understanding foreign keys and schema relationships
+Filter payments by amount and ranges
 
-Handling queries with no results properly
+Find customers based on name patterns
 
-How to Use
+Calculate total and average payments per customer
 
-Open pgAdmin or any PostgreSQL client.
+Identify top customers by total spending
 
-Connect to the dvdrental database.
+Compute total revenue per staff member
 
-Open the Query Tool.
+Analyze film lengths and payments
 
-Copy and execute queries for each question.
+🔹 Project 2: Day 04 Assignment – PostgreSQL JOINS (8 Questions)
 
-Optionally, save all queries in a single file named dvdrental_assignment.sql.
+This section demonstrates relational database querying using multiple tables and JOIN operations.
 
-Author
+Concepts Covered:
 
-Name: (Muhammed Bello abdullahi)
-Course: Computer Science / Data Science
-Purpose: Academic Practice & Skill Development
+INNER JOIN
 
-Status
+LEFT JOIN
 
-✅ Completed
+Multi-table joins
 
-Notes
+Aggregations across related tables
 
-Queries may return no rows depending on the dataset; this is expected.
+Business-style analytical queries
 
-Focus is on logic correctness rather than forcing output.
+Questions Solved:
 
-Happy querying 🚀
-The project can be extended with subqueries, window functions, and views for deeper learning.
+List all customers along with their total payment amount
 
-Happy querying 🚀
+Retrieve the top 10 customers by total amount spent
+
+Display all films and their corresponding categories
+
+Find the number of rentals made by each customer
+
+List customers who have never made a payment (LEFT JOIN)
+
+Show total revenue generated per store
+
+Identify the top 5 most rented movies
+
+(Bonus) Find customers who rented more than 30 films
+
+📊 Key Skills Demonstrated
+
+Understanding of relational database structure
+
+Correct use of foreign keys in JOIN conditions
+
+Writing clean, readable, and well-commented SQL
+
+Translating business questions into SQL queries
+
+Data aggregation and ranking
+
+✅ Learning Outcomes
+
+By completing these projects, the following skills were strengthened:
+
+Confidence in writing PostgreSQL queries
+
+Ability to join multiple tables correctly
+
+Improved analytical thinking using SQL
+
+Readiness for beginner-to-intermediate SQL interviews and assessments
+
+📌 Notes
+
+All queries are written and tested on the dvdrental PostgreSQL database.
+
+Queries include comments for clarity and learning purposes.
+
+This repository is intended for learning, practice, and portfolio demonstration.
+
+📜 License
+
+This project is for educational and portfolio use.
