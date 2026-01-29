@@ -1,4 +1,4 @@
-DAY 04 ASSIGNMENT: PostgreSQL JOINS (dvdrental)
+DAY 04 project: PostgreSQL JOINS (dvdrental)
 =====================================================
 Instructions:
 Write SQL queries to solve the problems below.
@@ -50,7 +50,8 @@ Q1: List all customers along with their total payment amount.
 Output: customer_id, full_name, total_amount
 -----------------------------------------------------
 
--- ans 
+-- solution_1
+
 SELECT c.customer_id, c.first_name || ' ' ||  c.last_name as full_name,
        sum(p.amount) as total_amount
 from customer c
@@ -63,7 +64,8 @@ order by total_amount;
 Q2: Retrieve the top 10 customers by total amount spent.
 Output: full_name, email, total_amount
 -----------------------------------------------------
--- ans
+-- solution_2
+
 SELECT 
     c.first_name || ' ' || c.last_name AS full_name,
     c.email,
@@ -79,7 +81,8 @@ FETCH FIRST 10 ROWS ONLY;
 -- Q3: Display all films and their corresponding categories.
 --Tables: film, film_category, category
 -----------------------------------------------------
--- ans
+-- solution_3
+
 SELECT f.title, c.name
 FROM film f
 INNER JOIN film_category fc ON f.film_id = fc.film_id
@@ -89,7 +92,8 @@ INNER JOIN category c ON fc.category_id = c.category_id;
 -- Q4: Find the number of rentals made by each customer.
 -- Output: customer_id, full_name, total_rentals
 ----------------------------------------------------------
--- ans 
+-- solution_4 
+
 SELECT 
     c.customer_id,
     c.first_name || ' ' || c.last_name AS full_name,
@@ -104,7 +108,7 @@ ORDER BY total_rentals DESC;
 -- Hint: LEFT JOIN
 -----------------------------------------------------
 
--- ans 
+-- solution_5 
 
 SELECT 
     c.first_name || ' ' || c.last_name AS full_name
@@ -116,7 +120,8 @@ WHERE p.customer_id IS NULL;
 -- Q6: Show total revenue generated per store.
 -- Tables: store, staff, payment
 -----------------------------------------------------
--- ans
+-- solution_6
+
 select st.store_id,
        sum(p.amount) as total_revenue
 from store st
@@ -130,6 +135,8 @@ order by total_revenue desc;
 -- Q7: Identify the top 5 most rented movies.
 -- Output: film_title, rental_count
 -----------------------------------------------------
+-- solution_7
+
 select f.title as film_title, 
        count(rn.rental_id) as rental_count
 from film f
@@ -140,9 +147,19 @@ order by rental_count desc
 fetch first 5 rows only;
 
 
- 
+-- Q8 (BONUS): Find customers who rented more than 30 films. 
+-- Output: full_name, rental_count
 
+-- solution_8
 
+SELECT 
+    c.first_name || ' ' || c.last_name AS full_name,
+    COUNT(r.rental_id) AS rental_count
+FROM customer c
+INNER JOIN rental r ON c.customer_id = r.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+HAVING COUNT(r.rental_id) > 30
+ORDER BY rental_count DESC;
 
 
 
